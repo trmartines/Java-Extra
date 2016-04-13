@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 //import javax.swing.JOptionPane;
@@ -5,7 +6,7 @@ import java.util.Scanner;
 public class SeatingChartInConsole 
 {
 	static String[] name;
-	static int[] number;
+	static ArrayList<Integer> number = new ArrayList<Integer>();
 	static int numberForAskedNamesOrNumbers = 0;
 	static int totalStudents = 0;
 	static boolean askedStudentNumber = false;
@@ -13,15 +14,17 @@ public class SeatingChartInConsole
 	
 	public static void main(String[] args) 
 	{
+	//
 		int n;
 /**
  * 									all comments refer to lines below them
  * 
  * 
  * 													 Todo:
+ * 										add an array list to number
  */
 		
-		testingArea();
+	//	testingArea();
 		namesOrNumbers();
 		
 		
@@ -29,19 +32,19 @@ public class SeatingChartInConsole
 	public static void start()
 	{
 		System.out.print("Are each of your desks 'single' or are they in 'groups'? \n");
-		String seatingType = input.nextLine();		
+		String seatingType = input.next();		
 		if (Objects.equals(seatingType, "single"))
 			single();
 		if (Objects.equals(seatingType, "groups"))
 		{
-			System.out.print("How many students would you like be in each group?");	 
+			System.out.print("How many students would you like be in each group? ");	 
 			remainderPreCheck();
 		}
 		else
 		{
 			System.out.print("Please type 'groups' if your desks are in groups or 'single' if your desks are single. Press enter to retry.\n");
 			input.nextLine();
-			main(name);
+			start();
 		}
 	}
 	public static void namesOrNumbers() 
@@ -72,7 +75,14 @@ public class SeatingChartInConsole
 	{
 		
 	}
-	
+	public static ArrayList<Integer> number()
+	{
+		for( int n = 0; n < numberOfStudents(); n++)
+		{
+			number.add(input.nextInt());
+			return number[n];
+		}
+	}
 	
 	public static void groups()
 	{
@@ -109,8 +119,9 @@ public class SeatingChartInConsole
 			askedStudentNumber = true;
 			System.out.print("how many students are in your class?");
 			totalStudents = input.nextInt();
+			return totalStudents;
 		}
-		return totalStudents;
+		else return totalStudents;
 	}
 	
 	public static int studentsInEachGroup() 
@@ -141,8 +152,8 @@ public class SeatingChartInConsole
 		int i = 1 ;
 		for(int n = 0; n < numberOfStudents(); n++)
 		{
-			number[i] = i;
-			i++;
+			//number.add(n) = n;
+			//nui++;
 		}
 		start();
 		
