@@ -5,8 +5,11 @@ import java.util.Scanner;
 
 public class SeatingChartInConsole 
 {
+	
 	static String[] name;
-	static ArrayList<Integer> number = new ArrayList<Integer>();
+	//static ArrayList<Integer>[] number = new ArrayList[numberOfStudents()];
+	static boolean number = false;
+	static boolean type = false;
 	static int numberForAskedNamesOrNumbers = 0;
 	static int totalStudents = 0;
 	static boolean askedStudentNumber = false;
@@ -15,6 +18,7 @@ public class SeatingChartInConsole
 	public static void main(String[] args) 
 	{
 	//
+		
 		int n;
 /**
  * 									all comments refer to lines below them
@@ -56,11 +60,14 @@ public class SeatingChartInConsole
 		String typeNames = input.nextLine();
 		if(Objects.equals(typeNames, "type"))
 		{
+			type = true;
 			typeNames();
 		}
 		if(Objects.equals(typeNames, "number"))
 		{
-			asignNumber();
+			//asignNumber();
+			number = true;
+			start();
 		}
 		else
 		{
@@ -75,12 +82,11 @@ public class SeatingChartInConsole
 	{
 		
 	}
-	public static ArrayList<Integer> number()
+	public static ArrayList<Integer> numbers() 
 	{
-		for( int n = 0; n < numberOfStudents(); n++)
+		for( int n = 0; n < numberOfStudents(), n++)
 		{
-			number.add(input.nextInt());
-			return number[n];
+			
 		}
 	}
 	
@@ -195,5 +201,5 @@ public class SeatingChartInConsole
 		
 		
 	}
-	
-}
+
+};}
